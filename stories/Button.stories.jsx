@@ -3,9 +3,12 @@
  */
 const Button = require('../src/Button.ejs')
 
+import React from 'react'
+
 import { render } from '../render.js'
 
 import { getStyles } from '../getStyles.js'
+import { createStory } from '../createStory.js'
 
 /**
  * Styles du bouton
@@ -41,28 +44,28 @@ export default {
   }
 }
 
-const Template = (args) => createButton(args)
+const Template = (args) => <div>{ createButton(args) }</div>
 
-export const Primary = Template.bind({})
-
-Primary.args = {
+export const Primary = createStory(Template, {
   primary: true,
   label: 'Button'
-}
+}).story
 
-export const Secondary = Template.bind({})
-Secondary.args = {
-  label: 'Button'
-}
+// export const Secondary = createStory(Template).story
 
-export const Large = Template.bind({})
-Large.args = {
-  size: 'large',
-  label: 'Button'
-}
+// export const Secondary = Template.bind({})
+// Secondary.args = {
+//   label: 'Button'
+// }
 
-export const Small = Template.bind({})
-Small.args = {
-  size: 'small',
-  label: 'Button'
-}
+// export const Large = Template.bind({})
+// Large.args = {
+//   size: 'large',
+//   label: 'Button'
+// }
+
+// export const Small = Template.bind({})
+// Small.args = {
+//   size: 'small',
+//   label: 'Button'
+// }

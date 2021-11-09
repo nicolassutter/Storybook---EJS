@@ -18,6 +18,7 @@
     "@storybook/addon-links": "^6.3.12",
     "@storybook/html": "^6.3.12",
     "babel-loader": "^8.2.3",
+    "html-loader": "^3.0.1",
     "raw-loader": "^4.0.2"
   }
 }
