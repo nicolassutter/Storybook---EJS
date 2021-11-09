@@ -3,8 +3,6 @@
  */
 const Button = require('../src/Button.ejs')
 
-import React from 'react'
-
 import { render } from '../render.js'
 
 import { getStyles } from '../getStyles.js'
@@ -18,9 +16,9 @@ import './button.css'
 /**
  * Pas nécéssaire si aucune option n'est configurable
  */
-const createButton = ({ primary = false, size = 'medium', label }) => {
+const createButton = ({ primary = false, variant = 'filled', label }) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary'
-  const classes = ['storybook-button', `storybook-button--${size}`, mode].join(' ')
+  const classes = ['storybook-button storybook-button--medium', variant, mode].join(' ')
   const styles = getStyles({})
 
   return render(Button, { classes, styles, label })
@@ -37,35 +35,16 @@ export default {
   argTypes: {
     label: { control: 'text' },
     primary: { control: 'boolean' },
-    size: {
+    variant: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      options: ['filled', 'ghost'],
     }
   }
 }
 
-const Template = (args) => <div>{ createButton(args) }</div>
+const Template = (args) => createButton(args)
 
-export const Primary = createStory(Template, {
-  primary: true,
-  label: 'Button'
-}).story
+export const Default = createStory(Template, { variant: 'filled', label: 'Hello' })
 
-// export const Secondary = createStory(Template).story
-
-// export const Secondary = Template.bind({})
-// Secondary.args = {
-//   label: 'Button'
-// }
-
-// export const Large = Template.bind({})
-// Large.args = {
-//   size: 'large',
-//   label: 'Button'
-// }
-
-// export const Small = Template.bind({})
-// Small.args = {
-//   size: 'small',
-//   label: 'Button'
-// }
+export const Filled = createStory(Template, { variant: 'filled', primary: true, label: 'Hello' })
+export const Ghost = createStory(Template, { variant: 'ghost', primary: true, label: 'Hello' })

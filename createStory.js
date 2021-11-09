@@ -1,16 +1,8 @@
-export const createStory = (Template, args) => {
-  const story = Template.bind({})
+export const createStory = (g, args, parameters = {}) => {
+  const t = g.bind({})
 
-  const parameters = {
-    docs: {
-      source: {
-        code: Template(args)
-      }
-    }
-  }
+  t.args = args
+  t.parameters = parameters
 
-  story.args = args
-  story.parameters = parameters
-
-  return { story, args, parameters }
+  return t
 }

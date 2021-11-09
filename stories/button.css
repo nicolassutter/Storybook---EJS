@@ -7,15 +7,28 @@
   display: inline-block;
   line-height: 1;
 }
-.storybook-button--primary {
+.storybook-button--primary.filled {
   color: white;
   background-color: #1ea7fd;
 }
-.storybook-button--secondary {
-  color: #333;
+
+.storybook-button--primary.ghost {
+  color: black;
   background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  border: 2px solid #1ea7fd;
 }
+
+.storybook-button--secondary.filled {
+  color: white;
+  background-color: rgb(36, 36, 36);
+}
+
+.storybook-button--secondary.ghost {
+  color: black;
+  background-color: transparent;
+  border: 2px solid rgb(36, 36, 36);
+}
+
 .storybook-button--small {
   font-size: 12px;
   padding: 10px 16px;
